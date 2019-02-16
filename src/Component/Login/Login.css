@@ -1,0 +1,17 @@
+
+.login-form-wrapper{
+    height: 41em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-form-wrapper h1{
+    margin: 45px 0px 0px 10px; 
+    float: right;
+}
+.login-form-wrapper img{
+    float: left;
+}
+.login-btn{
+    float: right;
+}
