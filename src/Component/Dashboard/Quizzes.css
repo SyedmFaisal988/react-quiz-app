@@ -70,24 +70,58 @@
 }
 
 .quiz-tree-wrapper{
+    display: block;
     padding: 0px;
-    margin: 0px;    
+    margin: 0px;
+    border-bottom: 2px solid white;
 }
 
 .quiz-tree-courses{
     margin: 0px ; 
-    font-size: 23px;
+    font-size: 20px;
     padding: 0px;
-    border-bottom: 2px solid white;
-
+    overflow: hidden;    
 }
 
-.quiz-tree-courses-drop li{
+/* .quiz-tree-wrapper:hover> .courses-drop{
     display: block;
+    border: 1px solid red;
+    height: 0px;
+    overflow: hidden;
+    animation-name: drop1;
+    animation-delay: 500ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;   
+    
+} */
+/*
+@keyframes drop1{
+    0% {
+        height: 50px;
+    }
+    25%{
+        height: 100px;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    75%{
+        opacity: 0.75;
+    }
+    100% {
+        height: 140px;
+    }    
+}*/
+
+ .courses-drop{
+     height: 0px;
+    overflow: hidden;
+} 
+
+.courses-drop li{
     padding: 4px 0px 0px 30px;
     margin: 0px;
-    font-size: 20px;
-    
+    font-size: 20px;    
 }
 
 .space-filler{

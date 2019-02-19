@@ -2,7 +2,7 @@ import React from 'react';
 import './Input.css'
 
 function Input(props) {
-    const { type, id, name, value, onChange, placeHolder, label, error } = props;
+    const { type, id, name, value, onChange, placeHolder, label, error, dataError, dataSuccess } = props;
     return (
         <div className="row inputContainer">
             <div className="input-field col s12 inputWrapper">
@@ -13,14 +13,13 @@ function Input(props) {
                     name={name}
                     value={value}
                     placeholder={placeHolder}
+                    pattern={error && "[a-z]{3}"}
                     onChange={(ev) => onChange(ev)}
                     className="validate" />
                 <label
                     htmlFor={id} >{label}
                 </label>
-                {error &&
-                    <span className="helper-text error" data-error="error" data-success="right">Helper Text</span>
-                }
+                <span className="helper-text error" data-error={dataError} data-success={dataSuccess}></span>
             </div>
         </div>
     );

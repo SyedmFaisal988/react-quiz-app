@@ -56,7 +56,7 @@ class AllQuizzes extends Component {
         this.state.UserAllowedTest = this.props.UserAllowedTest;
         this.state.currentUser = this.props.currentUser;
         this.state.testActive = null;
-        console.log('constructor')
+        this.state.updateCurrentUser = props.updateCurrentUser;
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -90,6 +90,31 @@ class AllQuizzes extends Component {
         }
         this.props.changeLoadTest(temp);
     }
+    dropDownAnimate = (divId, length)=>{
+        var elem = document.getElementById(divId);
+        let pos = 0;
+        let posLimit = length*64
+        function frame(){
+            if(pos===posLimit){
+                clearInterval(id)
+            }
+            pos=pos+1;
+            elem.style.height = pos+'px'
+        }
+        var id = setInterval(frame, 5)
+    }
+    leaveMMouse=(ev, length)=>{
+        var elem = document.getElementById(ev);
+        let pos = length*64;
+        function frame(){
+            if(pos===0){
+                clearInterval(id)
+            }
+            pos=pos-1;
+            elem.style.height = pos+'px'
+        }
+        var id = setInterval(frame, 5)
+    }
     render() {
         const { active, loadTest, UserAllowedTest, courses, currentUser } = this.state;
         const courseDetail = {
@@ -106,14 +131,14 @@ class AllQuizzes extends Component {
             correctAns: UserAllowedTest[loadTest[0]].marks[loadTest[1]],
         }
         return (
-            <div className="dashboard-row row">
+            <div className="dashboard-row col s12 row">
                 <div className="navbar grey darken-2 row" >
                     <div className="dashboard">
                         <strong>Dash Board</strong>
                         <i className="material-icons left">dashboard</i>
                     </div>
                     <div className="logout-btn">
-                        <button className="waves-effect waves-teal btn-flat grey darken-2"><strong>LOGOUT</strong>
+                        <button onClick={this.props.deleteCurrentUser} className="waves-effect waves-teal btn-flat grey darken-2"><strong>LOGOUT</strong>
                             <i style={{ width: '30px', height: '30px' }} className="material-icons left">exit_to_app</i>
                         </button>
                     </div>
@@ -132,18 +157,22 @@ class AllQuizzes extends Component {
                     <div >
                         {
                             this.state.courses.map((course, index) => {
-                                return <div className="quiz-tree-wrapper col s12 row " key={course + "-" + index}>
-                                    <div onClick={() => this.changeChildDisplayStatus(index)} className={(active === index) ? "quiz-tree-courses row course-active" : "quiz-tree-courses row"}>
+                                return <div className="quiz-tree-wrapper col s12 " key={course + "-" + index}>
+                                    <div onClick={() => this.changeChildDisplayStatus(index)} 
+                                        onMouseOver={()=>{
+                                            let val = "drop"+index;
+                                            this.dropDownAnimate(val, course.tests.length)}} 
+                                        onMouseLeave={()=>this.leaveMMouse("drop"+index, course.tests.length)}
+                                        className={(active === index) ? "quiz-tree-courses row course-active" : "quiz-tree-courses row"}>
                                         <i className="material-icons left">add</i>{course.name}
                                     </div>
-                                    <div className="quiz-tree-courses-drop row">
-                                        {course.testChildDisplayStatus ? <ul>
+                                    <ul id={"drop"+index}
+                                        className={"courses-drop drop-down"+index+" row"}>
                                             {course.tests.map((course_test, ind) =>
                                                 <li className={(index === loadTest[0] && ind === loadTest[1]) ? "course-active" : ""} key={"test" + ind} onClick={() => { this.setLoadTest(index, ind) }}><i className="material-icons left">indeterminate_check_box</i>
                                                     {course_test.name}</li>
                                             )}
-                                        </ul> : null}
-                                    </div>
+                                    </ul>
                                 </div>
                             })
                         }

@@ -76,6 +76,12 @@ class MyRouter extends Component {
             })
         }
     }
+    deleteCurrentUser=()=>{
+        localStorage.removeItem('currentUser');
+        this.setState({
+            currentUser: null
+        });
+    }
 
     findUserIndex = (contUser) => {
         let { currentUser } = this.state;
@@ -115,6 +121,7 @@ class MyRouter extends Component {
                             changeLoadTest={this.changeLoadTest}
                             currentUser={currentUser}
                             loadTest={loadTest}
+                            deleteCurrentUser={this.deleteCurrentUser}
                             path="/dashboard"
                             component={Dashboard} />
 
@@ -145,7 +152,7 @@ const PrivateQuizRoute = ({ component: Component, updateCurrentUser, currentUser
     )
 }
 
-const PrivateQuizzesRoute = ({ component: Component, userIndex, findUserIndex ,updateCurrentUser, currentUser, loadTest, changeLoadTest, ...rest }) => {
+const PrivateQuizzesRoute = ({ component: Component, deleteCurrentUser,userIndex, findUserIndex ,updateCurrentUser, currentUser, loadTest, changeLoadTest, ...rest }) => {
     if (!currentUser) {
         updateCurrentUser();
         return <Route {...rest} render={(props) => <Login history={props.history} routeTo="/dashboard" />} />
@@ -160,6 +167,7 @@ const PrivateQuizzesRoute = ({ component: Component, userIndex, findUserIndex ,u
                 loadTest={loadTest}
                 data={data}
                 UserAllowedTest={UserAllowedTest[userIndex].testResults} 
+                deleteCurrentUser={deleteCurrentUser}
                 changeLoadTest={changeLoadTest} />} />
         )
     }

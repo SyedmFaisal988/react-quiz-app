@@ -62,14 +62,17 @@ class Login extends Component {
                             onChange={this.onChangeWithInputs}
                             value={userName}
                             label="User Name"
-                            error="Hey" />
+                            dataError="Enter a valid User Name"
+                            dataSuccess="User Name is valid"
+                             />
                         <Input 
                         type="password"
                         id="pass_word"
                         name="passWord"
                         onChange={this.onChangeWithInputs}
                         value={passWord}
-                        label="Pass Word"    />
+                        label="Pass Word"
+                            />
 
                         <div className="login-btn" >
                             <button type="submit" className="btn waves-effect waves-light light-blue darken-2" name="action">Submit
