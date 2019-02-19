@@ -7,17 +7,20 @@ function Input(props) {
         <div className="row inputContainer">
             <div className="input-field col s12 inputWrapper">
                 {id==="user_name"?<i className="material-icons prefix">account_circle</i>:<i className="material-icons prefix">vpn_key</i> } 
-                <input 
+                <input
                     type={type}
                     id={id}
                     name={name}
                     value={value}
                     placeholder={placeHolder}
-                    onChange={(ev) => onChange(ev)} />
+                    onChange={(ev) => onChange(ev)}
+                    className="validate" />
                 <label
                     htmlFor={id} >{label}
                 </label>
-                <span> </span>
+                {error &&
+                    <span className="helper-text error" data-error="error" data-success="right">Helper Text</span>
+                }
             </div>
         </div>
     );

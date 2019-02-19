@@ -69,7 +69,7 @@ class MyRouter extends Component {
     updateCurrentUser = () => {
         const user = JSON.parse(localStorage.getItem("currentUser"));
         if (user !== null) {
-            let userIndex = this.findUserIndex();
+            let userIndex = this.findUserIndex(user);
             this.setState({
                 currentUser: user,
                 userIndex,
@@ -77,8 +77,11 @@ class MyRouter extends Component {
         }
     }
 
-    findUserIndex = () => {
-        const { currentUser } = this.state;
+    findUserIndex = (contUser) => {
+        let { currentUser } = this.state;
+        if(currentUser===null){
+            currentUser = contUser;
+        }
         let userIndex = 0;
         for (userIndex = 0; userIndex < UserAllowedTest.length; userIndex++) {
             if (UserAllowedTest[userIndex].userId === currentUser.id)
@@ -120,7 +123,6 @@ class MyRouter extends Component {
                             updateCurrentUser={this.updateCurrentUser}
                             changeTestResult={this.changeTestResult}
                             loadTest={loadTest} 
-                            currentUser={currentUser}
                             testData={data.courses[loadTest[0]].tests[loadTest[1]]}
                             path="/quiz"
                             component={Quiz} />

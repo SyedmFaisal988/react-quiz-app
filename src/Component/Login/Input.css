@@ -1,4 +1,6 @@
-
 .inputWrapper{
     width: 100%;
+}
+.error{
+    text-align: left;
 }

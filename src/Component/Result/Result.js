@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Result(props) {
-        const {userName, loadTest, testName, totQuest, correctAns} = props.data;
+        const {userName, testName, totQuest, correctAns} = props.data;
         return(
             <div>
                 <h1>

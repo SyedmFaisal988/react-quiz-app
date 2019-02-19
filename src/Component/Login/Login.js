@@ -50,7 +50,7 @@ class Login extends Component {
         return (
             <div className="loginContainer">
                 <div className="login-form-wrapper valign-wrapper">
-                    <form onSubmit={this.Submit} className=" col s10 form-wrap">
+                    <form id="login-form" onSubmit={this.Submit} className=" col s10 form-wrap">
                     <div >
                             <img src={loginImg} width="150px" alt="hello"/>
                             <h1 >Login Page  </h1>
@@ -61,7 +61,8 @@ class Login extends Component {
                             name="userName"
                             onChange={this.onChangeWithInputs}
                             value={userName}
-                            label="User Name" />
+                            label="User Name"
+                            error="Hey" />
                         <Input 
                         type="password"
                         id="pass_word"
