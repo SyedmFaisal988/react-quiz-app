@@ -35,6 +35,11 @@ h1{
     font-size: 35px
 }
 
-.text-block{
-    padding-left: 10px
+.set-width-right{
+    width: 190px;
+}
+
+.result-contents>.text-block{
+    padding-left: 10px;
+    display: inline-block;
 }

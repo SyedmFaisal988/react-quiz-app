@@ -49,12 +49,10 @@ class Quiz extends Component {
     render() {
         const tempQuestion = this.state.test.questions[this.state.questNo];
         return (
-            <div className=" quiz-header row col s12">
-                <div className="row quiz-name row col s12 m12">
+            <div className=" quiz-contents row col s12">
                     <h1>{this.state.test.name}</h1>
-                </div>
                 {
-                    <div className="quiz-question row col s12" style={{textAlign: 'left',  
+                    <div className="quiz-question " style={{textAlign: 'left'  
                         }} >
                             <div className="question-options" onChange={this.setProposedAns}>
                             <p>{tempQuestion.question} </p>
@@ -82,6 +80,8 @@ class Quiz extends Component {
                                 <span>{tempQuestion.options[3]} </span>
                                 </label>
                             </p>
+                            </div>
+                            <div className="btn-container">
                                 <button className="waves-effect waves-light btn right" type="button" onClick={this.nextItem}>{(this.state.questNo === this.state.totalQuestions)?"submit":"next"}</button>
                             </div>
                         </div>

@@ -169,7 +169,7 @@ class AllQuizzes extends Component {
                     </div>
                 </div>
 
-                <div className="quiz-tree row grey darken-2 col s12 m3  ">
+                <div className="quiz-tree row col s12 m3  ">
                     <div >
                         {
                             this.state.courses.map((course, index) => {
