@@ -3,12 +3,8 @@
     height: 4em;
     margin: 0px;
     margin-bottom: 5px;
-}
-
-.dashboard-row col{
-    padding: 0px;
-    margin: 0px;
-}
+    width: auto;
+}}
 
 .logout-btn i{
     font-size: 30px;
@@ -57,6 +53,7 @@
     float: left;
     color: white; 
     overflow: hidden;
+    background-color: #616161 ;
 }
 
 
@@ -73,11 +70,6 @@
 
 }
 
-.quiz-tree .row{
-    padding: 0px;
-    margin: 0px;
-}
-
 .quiz-tree .col{
     padding: 0px;
     margin: 0px;
@@ -92,14 +84,9 @@
     padding: 0px;
     margin: 0px;
     border-bottom: 2px solid white;
+    text-align: left
 
 }
-
-.quiz-tree-wrapper .col{
-    padding: 0px;
-    margin: 0px;
-}
-
 
 .quiz-tree-wrapper .row{
     padding: 0px;
@@ -107,9 +94,7 @@
 }
 
 .quiz-tree-courses{
-    margin: 0px ; 
     font-size: 20px;
-    padding: 0px;
     overflow: hidden;    
 }
 
@@ -161,6 +146,9 @@
     display: flex;
     float: right;
     height: 597px;
+    padding-left: 100px;
+    text-align: left;
+    overflow: scroll;
 }
 /* course detail diplay porting styling end */
 
@@ -195,7 +183,9 @@
 @media only screen and (max-width: 600px){
     .quiz-tree{
         height: auto;
-        display:inline-block;
+        background-color: white;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     .dashboard strong{
         font-size: 25px;
@@ -221,7 +211,12 @@
         font-size: 20px;
     }
     .quiz-tree-wrapper{
-        width: 10px;    
+        width: 10px;   
+        border-radius: 20px;  
+        
+    }
+    .quiz-tree-wrapper .row{
+        margin-left: 5px;
 
     }
     .quiz-tree .quiz-tree-wrapper:first-child{
@@ -232,6 +227,9 @@
     }
     .right-aligner{
         width: 190px
+    }
+    .details{
+        padding-left: 10px;
     }
 }
 @media only screen and (min-width: 768px){

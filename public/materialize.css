@@ -3447,8 +3447,8 @@ table span.badge {
 }
 
 .col .row {
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .section {
@@ -3469,8 +3469,8 @@ table span.badge {
 }
 
 .row {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0px;
+  margin-right: 0px;
   margin-bottom: 20px;
 }
 
@@ -3484,7 +3484,6 @@ table span.badge {
   float: left;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 0 0.75rem;
   min-height: 1px;
 }
 
@@ -3494,86 +3493,50 @@ table span.badge {
 
 .row .col.s1 {
   width: 8.3333333333%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
 }
 
 .row .col.s2 {
-  width: 16.6666666667%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
+  width: 16.6666666667%;  
 }
 
 .row .col.s3 {
   width: 25%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
 }
 
 .row .col.s4 {
-  width: 33.3333333333%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
+  width: 33.3333333333%;  
 }
 
 .row .col.s5 {
-  width: 41.6666666667%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
+  width: 41.6666666667%;  
 }
 
 .row .col.s6 {
   width: 50%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
 }
 
 .row .col.s7 {
   width: 58.3333333333%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
 }
 
 .row .col.s8 {
   width: 66.6666666667%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
 }
 
 .row .col.s9 {
   width: 75%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
 }
 
 .row .col.s10 {
-  width: 83.3333333333%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
+  width: 83.3333333333%;  
 }
 
 .row .col.s11 {
-  width: 91.6666666667%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
+  width: 91.6666666667%;  
 }
 
 .row .col.s12 {
-  width: 100%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
+  width: 100%;  
 }
 
 .row .col.offset-s1 {
@@ -3723,21 +3686,12 @@ table span.badge {
 @media only screen and (min-width: 601px) {
   .row .col.m1 {
     width: 8.3333333333%;
-    margin-left: auto;
-    left: auto;
-    right: auto;
   }
   .row .col.m2 {
     width: 16.6666666667%;
-    margin-left: auto;
-    left: auto;
-    right: auto;
   }
   .row .col.m3 {
     width: 25%;
-    margin-left: auto;
-    left: auto;
-    right: auto;
   }
   .row .col.m4 {
     width: 33.3333333333%;
@@ -8486,10 +8440,19 @@ input[type=range]::-ms-thumb {
   visibility: visible;
   -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
           animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-  -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
 }
 
 .tap-target {
@@ -8542,10 +8505,19 @@ input[type=range]::-ms-thumb {
 
 .tap-target-wave::after {
   visibility: hidden;
-  -webkit-transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s;
-  transition: opacity .3s, transform .3s, visibility 0s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s,
+ -webkit-transform .3s;
   z-index: -1;
 }
 
