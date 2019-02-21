@@ -5,6 +5,11 @@
     margin-bottom: 5px;
 }
 
+.dashboard-row col{
+    padding: 0px;
+    margin: 0px;
+}
+
 .logout-btn i{
     font-size: 30px;
     color: white;
@@ -16,7 +21,6 @@
     float: left;
     color: white;
 }
-
 
 .dashboard strong{
     font-size: 39px;    
@@ -36,6 +40,7 @@
 }
 .logout-btn{
     padding-top: 10px;
+    padding-right: 10px;
     display: block;
     float: right;
 }
@@ -47,9 +52,13 @@
     height: 567px;
     padding: 0px;
     margin: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
     float: left;
     color: white; 
+    overflow: hidden;
 }
+
 
 .course-active{
     background-color: #0288d1; 
@@ -69,11 +78,32 @@
     margin: 0px;
 }
 
+.quiz-tree .col{
+    padding: 0px;
+    margin: 0px;
+}
+
+.quiz-tree .quiz-tree-wrapper:first-child{
+    padding-top: 30px;
+}
+
 .quiz-tree-wrapper{
     display: block;
     padding: 0px;
     margin: 0px;
     border-bottom: 2px solid white;
+
+}
+
+.quiz-tree-wrapper .col{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.quiz-tree-wrapper .row{
+    padding: 0px;
+    margin: 0px;
 }
 
 .quiz-tree-courses{
@@ -124,16 +154,6 @@
     font-size: 20px;    
 }
 
-.space-filler{
-    height: 30px;
-    width: 100%;    
-    margin: 0px;
-    padding: 0px;  
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 /* end of side bar styling*/
 
 /* course detail diplay porting styling */
@@ -146,6 +166,11 @@
 
 /*Course Detail styling*/
 
+.start-btn{
+    margin: 0px;
+    
+}
+
 .course-detail h1{
     color: #0288d1; 
 }
@@ -155,11 +180,86 @@
     text-align: left;   
 }
 
-.course-detail h5{
-    display: inline;    
+.detail-header{
+    padding: 0px;
+    float: left;
+    
 }
-.text-block{
-    padding-left: 200px;
 
+.text-block{
+    text-align: left;
+    padding-left: 10px
 }
 /*Course Detail styling end*/
+/* media query */
+@media only screen and (max-width: 600px){
+    .quiz-tree{
+        height: auto;
+        display:inline-block;
+    }
+    .dashboard strong{
+        font-size: 25px;
+        padding: 0px;
+    }   
+    .navbar{
+        height: 2.8em;
+    }
+    .dashboard{
+        padding-left: 10px;
+        position: absolute;
+    }
+    .dashboard i{
+        font-size: 25px;
+        padding: 0px;
+        padding-top: 7px; 
+        width:10px
+    }
+    .logout-btn {
+        padding: 0px;
+    }
+    .logout-btn button{
+        font-size: 20px;
+    }
+    .quiz-tree-wrapper{
+        width: 10px;    
+
+    }
+    .quiz-tree .quiz-tree-wrapper:first-child{
+        padding-top: 2px
+    }
+    .text-block{
+        padding-left: 0px ;
+    }
+    .right-aligner{
+        width: 190px
+    }
+}
+@media only screen and (min-width: 768px){
+    .quiz-tree{
+        height: 579px;
+     
+    }
+}
+@media only screen and (min-width: 992px){
+    .quiz-tree{
+        height: 579px;
+        
+    }
+    .quiz-tree-courses{
+        font-size: 15px;
+    }
+    .courses-drop li{
+        font-size: 13px;
+    }
+}
+@media only screen and (min-width: 1200px){
+    .quiz-tree{
+        height: 579px;
+    }
+    .quiz-tree-courses{
+        font-size: 20px;
+    }
+    .courses-drop li{
+        font-size: 20px;
+    }
+}

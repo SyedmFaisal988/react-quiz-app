@@ -51,10 +51,10 @@ class Login extends Component {
             <div className="loginContainer">
                 <div className="login-form-wrapper valign-wrapper">
                     <form id="login-form" onSubmit={this.Submit} className=" col s10 form-wrap">
-                    <div >
-                            <img src={loginImg} width="150px" alt="hello"/>
-                            <h1 >Login Page  </h1>
-                        </div>
+                    <div className="login-header">
+                        <img className="resize" width="150px" src={loginImg} alt="hello"/>
+                        <h1 >Login Page  </h1>
+                    </div>
                         <Input 
                             type="text"
                             id="user_name"

@@ -1,0 +1,26 @@
+.quiz-header{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.quiz-name>h1{
+    padding: 0px;
+    margin: 0px;
+    float: inherit    
+}
+
+.quiz-name{
+    position: absolute;
+    top: 15%;
+    transform: translate(0%, -50%) 
+}
+
+.quiz-question {
+    position: absolute;
+    top: 30%;
+    left: 50%; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}

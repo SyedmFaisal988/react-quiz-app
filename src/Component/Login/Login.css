@@ -15,3 +15,28 @@
 .login-btn{
     float: right;
 }
+
+.login-header{
+    display: inline;
+}
+
+.login-header>h1{
+    margin-top: 45px;
+}
+
+.resize{
+    width: 150px;
+}
+
+.imageContainer{
+    display: inline
+}
+@media only screen and (max-width: 600px){
+    img.resize{
+        width: 100px;;
+    }
+    .login-header>h1{
+        font-size: 50px;
+        margin-top: 24px;
+    }
+}

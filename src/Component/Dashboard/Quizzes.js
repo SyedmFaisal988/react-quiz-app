@@ -6,8 +6,10 @@ import Result from '../Result/Result'
 function CourseDetail(props) {
     const { courseName, totQuest, testName, history } = props.test;
     return (
-        <div className="course-detail row col s12 ">
-            <h1>{courseName}</h1>
+        <div className="course-detail left row col s12 ">
+            <div className="row">
+                <h1 className="detail-header">{courseName}</h1>
+            </div>
             <div className=" row text-block">
                 <h5 className="right-aligner left">Course Name: &emsp;</h5>
                 <h5 className="left"> {testName}</h5>
@@ -24,7 +26,7 @@ function CourseDetail(props) {
                 <h5 className="right-aligner left">Passing creteria: &emsp;</h5>
                 <h5 className="left"> 70%</h5>
             </div>
-            <button className="btn waves-effect waves-light" onClick={() => {
+            <button className="btn waves-effect waves-light left start-btn" onClick={() => {
                 history.push('/quiz');
             }}> Start
                 <i className="material-icons right">send</i>
@@ -36,9 +38,11 @@ function CourseDetail(props) {
 function DefaultData() {
     return (
         <div className="row col s12 center-align">
+        <div className="row col s12">
             <h1 style={{ color: "#0288d1 " }}>
                 Welcome to the Quiz App
             </h1>
+        </div>
             <p>These series of test are design to check your knowledge of the subject. These test are simentaneously difficult
                 as well as easy depending upon your study and practice. Remember your are only allowed attemp any test only
                 once so do it with great attentions. Click on any quiz to continue </p>
@@ -57,6 +61,7 @@ class AllQuizzes extends Component {
         this.state.currentUser = this.props.currentUser;
         this.state.testActive = null;
         this.state.updateCurrentUser = props.updateCurrentUser;
+        this.state.animatedDrop = null;
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -90,7 +95,21 @@ class AllQuizzes extends Component {
         }
         this.props.changeLoadTest(temp);
     }
-    dropDownAnimate = (divId, length)=>{
+    dropDownAnimate = (divId, length, click)=>{
+        if(this.state.animatedDrop!==null){
+            if(this.state.animatedDrop.divId===divId && click==='click'){
+                this.clearAnimatedDrop(this.state.animatedDrop.divId, this.state.animatedDrop.length)
+                this.setState({
+                    animatedDrop: null
+                })
+                return;    
+            }
+            if(this.state.animatedDrop.divId===divId && click!=='click'){
+                return;
+        }
+            this.clearAnimatedDrop(this.state.animatedDrop.divId, this.state.animatedDrop.length)
+        }
+
         var elem = document.getElementById(divId);
         let pos = 0;
         let posLimit = length*64
@@ -102,8 +121,14 @@ class AllQuizzes extends Component {
             elem.style.height = pos+'px'
         }
         var id = setInterval(frame, 5)
+        this.setState({
+            animatedDrop: {
+                divId,
+                length
+            }
+        })
     }
-    leaveMMouse=(ev, length)=>{
+    clearAnimatedDrop=(ev, length)=>{
         var elem = document.getElementById(ev);
         let pos = length*64;
         function frame(){
@@ -134,8 +159,8 @@ class AllQuizzes extends Component {
             <div className="dashboard-row col s12 row">
                 <div className="navbar grey darken-2 row" >
                     <div className="dashboard">
+                    <i className="material-icons left">dashboard</i>
                         <strong>Dash Board</strong>
-                        <i className="material-icons left">dashboard</i>
                     </div>
                     <div className="logout-btn">
                         <button onClick={this.props.deleteCurrentUser} className="waves-effect waves-teal btn-flat grey darken-2"><strong>LOGOUT</strong>
@@ -143,27 +168,20 @@ class AllQuizzes extends Component {
                         </button>
                     </div>
                 </div>
-                <div className="space-filler col s3 row grey darken-2 left-align">
-                </div>
 
-                <div style={{ float: 'right' }} className="details col s6 m9 row">
-                    {
-                        (active === null) ? <DefaultData /> :
-                            UserAllowedTest[loadTest[0]].res[loadTest[1]] ? <Result data={data} /> : <CourseDetail test={courseDetail} />
-                    }
-                </div>
-
-                <div className="quiz-tree row grey darken-2 col s6 m3 left-align">
+                <div className="quiz-tree row grey darken-2 col s12 m3  ">
                     <div >
                         {
                             this.state.courses.map((course, index) => {
-                                return <div className="quiz-tree-wrapper col s12 " key={course + "-" + index}>
-                                    <div onClick={() => this.changeChildDisplayStatus(index)} 
+                                return <div className="quiz-tree-wrapper grey darken-2 col s12 " key={course + "-" + index}>
+                                    <div onClick={() => {
+                                        this.changeChildDisplayStatus(index)
+                                        this.dropDownAnimate("drop"+index, course.tests.length, "click")
+                                    }} 
                                         onMouseOver={()=>{
-                                            let val = "drop"+index;
-                                            this.dropDownAnimate(val, course.tests.length)}} 
-                                        onMouseLeave={()=>this.leaveMMouse("drop"+index, course.tests.length)}
-                                        className={(active === index) ? "quiz-tree-courses row course-active" : "quiz-tree-courses row"}>
+                                            this.changeChildDisplayStatus(index)
+                                            this.dropDownAnimate("drop"+index, course.tests.length)}} 
+                                            className= "quiz-tree-courses row">
                                         <i className="material-icons left">add</i>{course.name}
                                     </div>
                                     <ul id={"drop"+index}
@@ -177,6 +195,12 @@ class AllQuizzes extends Component {
                             })
                         }
                     </div>
+                </div>
+                <div style={{ float: 'right' }} className="details col s12 m9 row">
+                    {
+                        (active === null) ? <DefaultData /> :
+                            UserAllowedTest[loadTest[0]].res[loadTest[1]] ? <Result data={data} /> : <CourseDetail test={courseDetail} />
+                    }
                 </div>
             </div>
         )
