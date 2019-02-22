@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import './Quizzes.css';
 import Result from '../Result/Result'
+import * as firebase from 'firebase';
 
 function CourseDetail(props) {
     const { courseName, totQuest, testName, history } = props.test;
@@ -74,6 +75,7 @@ class AllQuizzes extends Component {
         const { courses, loadTest } = this.state;
         courses[courseNumber].testChildDisplayStatus = !courses[courseNumber].testChildDisplayStatus;
         loadTest[0] = courseNumber;
+        loadTest[1] = 0;
         this.setState({
             courses,
             active: courseNumber,
@@ -140,6 +142,15 @@ class AllQuizzes extends Component {
         }
         var id = setInterval(frame, 5)
     }
+
+    // componentDidMount() {
+    //      const  rootRef = firebase.database().ref().child('react');
+    //      const speedRef = rootRef.child('speed');
+    //      speedRef.on('value', snap=>{
+    //              stuff
+    //          });
+    // }
+
     render() {
         const { active, loadTest, UserAllowedTest, courses, currentUser } = this.state;
         const courseDetail = {
