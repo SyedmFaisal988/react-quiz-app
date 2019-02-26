@@ -242,15 +242,17 @@
         display: flex;
     }
 }
+
+
 @media only screen and (min-width: 768px){
     .quiz-tree{
-        height: 90vh
+        height: 90vh;
     }
 }
 @media only screen and (min-width: 992px){
     .quiz-tree{
-        height: 579px;
-        
+        height: 90vh;   
+
     }
     .quiz-tree-courses{
         font-size: 15px;
@@ -261,7 +263,7 @@
 }
 @media only screen and (min-width: 1200px){
     .quiz-tree{
-        height: 579px;
+        height: 90vh;
     }
     .quiz-tree-courses{
         font-size: 20px;

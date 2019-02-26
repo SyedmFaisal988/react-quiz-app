@@ -38,8 +38,8 @@ function CourseDetail(props) {
 function DefaultData() {
     return (
         <div className="row col s12 center-align">
-        <div className="row col s12">
-            <h1 style={{ color: "#0288d1 " }}>
+        <div style={{display:"flex", justifyContent: "center"}} className="row col s12">
+            <h1 className=" center-align " style={{ color: "#0288d1 " }}>
                 Welcome to the Quiz App
             </h1>
         </div>
