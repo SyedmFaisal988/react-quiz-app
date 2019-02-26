@@ -14,11 +14,9 @@
     width: 70%;
     transform: translate(30%, 0%);
     font-size: 20px;
-    border: 1px solid red
 }
 
 .quiz-question {
-    border: 1px solid red;
     position: absolute;
     top: 30%;
     width: 60%;
@@ -36,7 +34,6 @@
     .quiz-question{
         width: 100%;
         top: 20%;
-        border: 1px solid red;
         padding: 0px 15px 0px 15px;
     }
     .quiz-contents>h1{
