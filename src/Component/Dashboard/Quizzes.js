@@ -74,6 +74,7 @@ class AllQuizzes extends Component {
         const { courses, loadTest } = this.state;
         courses[courseNumber].testChildDisplayStatus = !courses[courseNumber].testChildDisplayStatus;
         loadTest[0] = courseNumber;
+        loadTest[1] = 0;
         this.setState({
             courses,
             active: courseNumber,
@@ -156,7 +157,7 @@ class AllQuizzes extends Component {
             correctAns: UserAllowedTest[loadTest[0]].marks[loadTest[1]],
         }
         return (
-            <div className="dashboard-row col s12 row">
+            <div style={{marginBottom: "0px", height: "100vh"}} className="dashboard-row col s12 row">
                 <div className="navbar grey darken-2 row" >
                     <div className="dashboard">
                     <i className="material-icons left">dashboard</i>
@@ -178,9 +179,6 @@ class AllQuizzes extends Component {
                                         this.changeChildDisplayStatus(index)
                                         this.dropDownAnimate("drop"+index, course.tests.length, "click")
                                     }} 
-                                        onMouseOver={()=>{
-                                            this.changeChildDisplayStatus(index)
-                                            this.dropDownAnimate("drop"+index, course.tests.length)}} 
                                             className= "quiz-tree-courses row">
                                         <i className="material-icons left">add</i>{course.name}
                                     </div>

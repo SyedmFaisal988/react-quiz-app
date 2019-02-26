@@ -45,7 +45,7 @@
 
 /* start of side bar styling*/
 .quiz-tree{
-    height: 567px;
+    height: auto;
     padding: 0px;
     margin: 0px;
     margin-left: 0px;
@@ -142,11 +142,14 @@
 /* end of side bar styling*/
 
 /* course detail diplay porting styling */
+
 .details{
     display: flex;
     float: right;
-    height: 597px;
-    padding-left: 100px;
+    height: 90%;
+    margin-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
     text-align: left;
     overflow: scroll;
 }
@@ -229,13 +232,19 @@
         width: 190px
     }
     .details{
-        padding-left: 10px;
+        height: auto;
+        padding: 0px 10px 0px 10px;
+    }
+    .detail-header{
+        text-align: center;
+    }
+    .text-block {
+        display: flex;
     }
 }
 @media only screen and (min-width: 768px){
     .quiz-tree{
-        height: 579px;
-     
+        height: 90vh
     }
 }
 @media only screen and (min-width: 992px){
